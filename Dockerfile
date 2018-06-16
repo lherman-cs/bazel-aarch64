@@ -10,3 +10,7 @@ RUN curl -fsSL ${URL} > bazel.zip && \
     unzip -q bazel.zip && \
     bash ./compile.sh && \
     cp output/bazel /usr/local/bin/bazel
+
+# Clean up
+WORKDIR /mnt
+RUN rm -rf bazel && bazel --help
